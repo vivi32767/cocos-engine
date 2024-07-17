@@ -1202,7 +1202,7 @@ declare namespace spine {
         setJitterEffect(jitter: spine.VertexEffect);
         setSwirlEffect(swirl: spine.VertexEffect);
         updateRenderData();
-        setListener(id: number);
+        setListener(id: number, eventType: spine.EventType);
         setDebugMode(debug: boolean);
         getDebugShapes();
         resizeSlotRegion(slotName: string, width: number, height: number, createNew: boolean);

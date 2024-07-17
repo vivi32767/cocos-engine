@@ -1686,11 +1686,11 @@ export class Skeleton extends UIRenderer {
         }
     }
 
-    protected _ensureListener (): void {
+    protected _ensureListener (eventType: spine.EventType): void {
         if (!this._listener) {
             this._listener = new TrackEntryListeners();
             const listenerID = TrackEntryListeners.addListener(this._listener);
-            this._instance!.setListener(listenerID);
+            this._instance!.setListener(listenerID, eventType);
         }
     }
 
@@ -1700,7 +1700,7 @@ export class Skeleton extends UIRenderer {
      * @param listener @en Listener for registering callback functions. @zh 监听器对象，可注册回调方法。
      */
     public setStartListener (listener: TrackListener): void {
-        this._ensureListener();
+        this._ensureListener(spine.EventType.start);
         this._listener!.start = listener;
     }
 
@@ -1710,7 +1710,7 @@ export class Skeleton extends UIRenderer {
      * @param listener @en Listener for registering callback functions. @zh 监听器对象，可注册回调方法。
      */
     public setInterruptListener (listener: TrackListener): void {
-        this._ensureListener();
+        this._ensureListener(spine.EventType.interrupt);
         this._listener!.interrupt = listener;
     }
 
@@ -1720,7 +1720,7 @@ export class Skeleton extends UIRenderer {
      * @param listener @en Listener for registering callback functions. @zh 监听器对象，可注册回调方法。
      */
     public setEndListener (listener: TrackListener): void {
-        this._ensureListener();
+        this._ensureListener(spine.EventType.end);
         this._listener!.end = listener;
     }
 
@@ -1730,7 +1730,7 @@ export class Skeleton extends UIRenderer {
      * @param listener @en Listener for registering callback functions. @zh 监听器对象，可注册回调方法。
      */
     public setDisposeListener (listener: TrackListener): void {
-        this._ensureListener();
+        this._ensureListener(spine.EventType.dispose);
         this._listener!.dispose = listener;
     }
 
@@ -1740,7 +1740,7 @@ export class Skeleton extends UIRenderer {
      * @param listener @en Listener for registering callback functions. @zh 监听器对象，可注册回调方法。
      */
     public setCompleteListener (listener: TrackListener): void {
-        this._ensureListener();
+        this._ensureListener(spine.EventType.complete);
         this._listener!.complete = listener;
     }
 
@@ -1750,7 +1750,7 @@ export class Skeleton extends UIRenderer {
      * @param listener @en Listener for registering callback functions. @zh 监听器对象，可注册回调方法。
      */
     public setEventListener (listener: TrackListener2): void {
-        this._ensureListener();
+        this._ensureListener(spine.EventType.event);
         this._listener!.event = listener;
     }
 
